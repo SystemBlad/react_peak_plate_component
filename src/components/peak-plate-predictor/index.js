@@ -1,8 +1,20 @@
-import React, {Component} from 'react';
+// @flow
+import React from 'react';
 import moment from 'moment'
 
-class PeakPlatePredictor extends Component {
-    constructor(props) {
+export interface Props {
+}
+
+export interface State {
+    plateNumber: string,
+    inputDate: string,
+    inputTime: string,
+}
+
+class PeakPlatePredictor extends React.Component<Props, State> {
+    _handleSubmit: Function;
+
+    constructor(props: Props) {
         super(props);
         this.state = {
             plateNumber: "",
@@ -13,7 +25,7 @@ class PeakPlatePredictor extends Component {
     }
 
 
-    _handleSubmit(event) {
+    _handleSubmit(event: any) {
         event.preventDefault();
         console.log("plateNumber", this.state.plateNumber);
         console.log("inputDate", this.state.inputDate);
@@ -73,31 +85,31 @@ class PeakPlatePredictor extends Component {
         switch (lastDigitPlateNumber) {
             case 1:
             case 2:
-                if (weekday === 1 && isHourPeakPlate){
+                if (weekday === 1 && isHourPeakPlate) {
                     isPeakPlate = true;
                 }
                 break;
             case 3:
             case 4:
-                if (weekday === 2 && isHourPeakPlate){
+                if (weekday === 2 && isHourPeakPlate) {
                     isPeakPlate = true;
                 }
                 break;
             case 5:
             case 6:
-                if (weekday === 3 && isHourPeakPlate){
+                if (weekday === 3 && isHourPeakPlate) {
                     isPeakPlate = true;
                 }
                 break;
             case 7:
             case 8:
-                if (weekday === 4 && isHourPeakPlate){
+                if (weekday === 4 && isHourPeakPlate) {
                     isPeakPlate = true;
                 }
                 break;
             case 9:
             case 0:
-                if (weekday === 5 && isHourPeakPlate){
+                if (weekday === 5 && isHourPeakPlate) {
                     isPeakPlate = true;
                 }
                 break;
@@ -106,13 +118,13 @@ class PeakPlatePredictor extends Component {
         }
 
         console.log("isPeakPlate", isPeakPlate);
-        if(isPeakPlate){
+        if (isPeakPlate) {
             alert("You cannot drive the car");
-        }else{
+        } else {
             alert("You can drive the car");
         }
 
-    };
+    }
 
     render() {
         return (

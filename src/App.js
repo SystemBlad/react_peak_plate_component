@@ -10,7 +10,7 @@ class App extends Component {
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
                     <p>
-                        React Js Component "pico y placa" predictor.
+                        React Js Component &quot;pico y placa&quot; predictor.
                     </p>
                 </header>
                 <PeakPlatePredictor/>
