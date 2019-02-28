@@ -1,0 +1,6 @@
+export const PEAK_PLATE_RESPONSE = {
+    IS_PEAK_AND_PLATE: 0,
+    NO_PEAK_AND_PLATE: 1,
+    INVALID_DATE: 2,
+    INVALID_PLATE_NUMBER: 3,
+};
