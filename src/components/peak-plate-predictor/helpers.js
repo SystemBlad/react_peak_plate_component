@@ -12,7 +12,7 @@ export function checkIsPeakAndPlate(plateNumber: string, inputDate: string, inpu
 
     //Check PlateNumber
     let lastCharacter = plateNumber.substring(plateNumber.length - 1, plateNumber.length);
-    if (!plateNumber || plateNumber.length !== 6 || plateNumber.length !== 7 || isNaN(lastCharacter)) {
+    if (!plateNumber  || isNaN(lastCharacter) || (plateNumber.length !== 6 && plateNumber.length !== 7)) {
         return PEAK_PLATE_RESPONSE.INVALID_PLATE_NUMBER;
     }
 
