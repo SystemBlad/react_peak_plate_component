@@ -2,14 +2,31 @@
 import React from 'react';
 import {PEAK_PLATE_RESPONSE} from "./enums";
 import {checkIsPeakAndPlate} from "./helpers";
+import Input from '@material-ui/core/Input';
+import Button from '@material-ui/core/Button';
+import withStyles from '@material-ui/core/styles/withStyles';
+import Paper from '@material-ui/core/Paper';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
 
-export interface Props {
+export
+interface
+Props
+{
 }
 
-export interface State {
+export
+interface
+State
+{
     plateNumber: string,
-    inputDate: string,
-    inputTime: string,
+        inputDate
+:
+    string,
+        inputTime
+:
+    string,
 }
 
 class PeakPlatePredictor extends React.Component<Props, State> {
@@ -54,143 +71,95 @@ class PeakPlatePredictor extends React.Component<Props, State> {
         }
 
         alert("VEHICLE:" + vehicle.plateNumber + "   MESSAGE:" + vehicle.displayMessage);
-
-        // console.log("plateNumber", this.state.plateNumber);
-        // console.log("inputDate", this.state.inputDate);
-        // console.log("inputTime", this.state.inputTime);
-        // let completeDateString = this.state.inputDate + " " + this.state.inputTime;
-        // console.log("completeDateString", completeDateString);
-        //
-        // //Check if date is valid
-        // let DateFormat = 'YYYY-MM-DD HH:mm';
-        // if (!moment(completeDateString, DateFormat, true).isValid()) {
-        //     alert("Not Valid Date or Time");
-        //     return
-        // }
-        //
-        // let inputDateAndTime = moment(completeDateString);
-        // console.log("inputDateAndTime", inputDateAndTime);
-        //
-        // //Check PlateNumber
-        // let lastCharacter = this.state.plateNumber.substring(this.state.plateNumber.length - 1, this.state.plateNumber.length);
-        // console.log("lastCharacter", lastCharacter);
-        // if (isNaN(lastCharacter)) {
-        //     alert("Not Valid Plate Number");
-        //     return
-        // }
-        // let lastDigitPlateNumber = Number(lastCharacter);
-        // console.log("lastDigit", lastDigitPlateNumber);
-        //
-        // // Check Time is in peak and plate hours
-        // let firstDateMorning = moment(this.state.inputDate + " 07:00");
-        // console.log("firstDateMorning", firstDateMorning);
-        //
-        // let lastDateMorning = moment(this.state.inputDate + " 09:30");
-        // console.log("lastDateMorning", lastDateMorning);
-        //
-        // let firstDateAffternoon = moment(this.state.inputDate + " 16:00");
-        // console.log("firstDateAffternoon", firstDateAffternoon);
-        //
-        // let lastDateAffternoon = moment(this.state.inputDate + " 19:30");
-        // console.log("lastDateAffternoon", lastDateAffternoon);
-        //
-        // let isHourPeakPlate = false;
-        //
-        // if (inputDateAndTime >= firstDateMorning && inputDateAndTime <= lastDateMorning) {
-        //     isHourPeakPlate = true
-        // }
-        //
-        // if (inputDateAndTime >= firstDateAffternoon && inputDateAndTime <= lastDateAffternoon) {
-        //     isHourPeakPlate = true
-        // }
-        // console.log("isHourPeakPlate", isHourPeakPlate);
-        //
-        // let weekday = inputDateAndTime.days();
-        // console.log("weekday", weekday);
-        //
-        // // Check is Peak and Plate
-        // let isPeakPlate = false;
-        // switch (lastDigitPlateNumber) {
-        //     case 1:
-        //     case 2:
-        //         if (weekday === 1 && isHourPeakPlate) {
-        //             isPeakPlate = true;
-        //         }
-        //         break;
-        //     case 3:
-        //     case 4:
-        //         if (weekday === 2 && isHourPeakPlate) {
-        //             isPeakPlate = true;
-        //         }
-        //         break;
-        //     case 5:
-        //     case 6:
-        //         if (weekday === 3 && isHourPeakPlate) {
-        //             isPeakPlate = true;
-        //         }
-        //         break;
-        //     case 7:
-        //     case 8:
-        //         if (weekday === 4 && isHourPeakPlate) {
-        //             isPeakPlate = true;
-        //         }
-        //         break;
-        //     case 9:
-        //     case 0:
-        //         if (weekday === 5 && isHourPeakPlate) {
-        //             isPeakPlate = true;
-        //         }
-        //         break;
-        //     default:
-        //         isPeakPlate = false;
-        // }
-
-
     }
 
+
     render() {
+        const {classes} = this.props;
         return (
-
-            <div>
-                <form style={{padding: 20}} onSubmit={this._handleSubmit}>
-                    <label style={{padding: 10}}>
-                        plate number:
-                        <input type="text"
-                               name="plateNumber"
-                               required
-                               style={{textTransform: "uppercase"}}
-                               placeholder="AAA9999"
-                               minLength={6}
-                               maxLength={7}
-                               value={this.state.plateNumber}
-                               onChange={(event) => this.setState({plateNumber: event.target.value})}
-                        />
-                    </label>
-                    <label style={{padding: 10}}>
-                        Date:
-                        <input type="date"
-                               required
-                               name="inputDate"
-                               value={this.state.inputDate}
-                               onChange={(event) => this.setState({inputDate: event.target.value})}
-                        />
-                    </label>
-                    <label style={{padding: 10}}>
-                        Time:
-                        <input type="time"
-                               name="name"
-                               required
-                               value={this.state.inputTime}
-                               onChange={(event) => this.setState({inputTime: event.target.value})}
-                        />
-                    </label>
-                    <input type="submit" value="Submit"/>
-                </form>
-            </div>
-
+            <main className={classes.main}>
+                <CssBaseline/>
+                <Paper className={classes.paper}>
+                    <form className={classes.form} onSubmit={this._handleSubmit}>
+                        <FormControl margin="normal" required fullWidth>
+                            <InputLabel>Plate Number</InputLabel>
+                            <Input type="text"
+                                   name="plateNumber"
+                                   required
+                                   style={{textTransform: "uppercase"}}
+                                   placeholder="AAA9999"
+                                   minLength={6}
+                                   maxLength={7}
+                                   value={this.state.plateNumber}
+                                   onChange={(event) => this.setState({plateNumber: event.target.value})}
+                            />
+                        </FormControl>
+                        <FormControl margin="normal" required fullWidth>
+                            <InputLabel>Date</InputLabel>
+                            <Input type="date"
+                                   required
+                                   name="inputDate"
+                                   value={this.state.inputDate}
+                                   onChange={(event) => this.setState({inputDate: event.target.value})}
+                            />
+                        </FormControl>
+                        <FormControl margin="normal" required fullWidth>
+                            <InputLabel>Time</InputLabel>
+                            <Input type="time"
+                                   name="name"
+                                   required
+                                   value={this.state.inputTime}
+                                   onChange={(event) => this.setState({inputTime: event.target.value})}
+                            />
+                        </FormControl>
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                        >
+                            Submit
+                        </Button>
+                    </form>
+                </Paper>
+            </main>
 
         );
     }
 }
 
-export default PeakPlatePredictor;
+const styles = theme => ({
+    main: {
+        width: 'auto',
+        display: 'block', // Fix IE 11 issue.
+        marginLeft: theme.spacing.unit * 3,
+        marginRight: theme.spacing.unit * 3,
+        [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
+            width: 400,
+            marginLeft: 'auto',
+            marginRight: 'auto',
+        },
+    },
+    paper: {
+        marginTop: theme.spacing.unit * 8,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
+    },
+    avatar: {
+        margin: theme.spacing.unit,
+        backgroundColor: theme.palette.secondary.main,
+    },
+    form: {
+        width: '100%', // Fix IE 11 issue.
+        marginTop: theme.spacing.unit,
+    },
+    submit: {
+        marginTop: theme.spacing.unit * 3,
+    },
+});
+
+// export default PeakPlatePredictor;
+export default withStyles(styles)(PeakPlatePredictor);

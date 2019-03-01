@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "http://SystemBlad.github.io/react_peak_plate_component",
   "dependencies": {
+    "@material-ui/core": "^3.9.2",
     "moment": "^2.24.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
