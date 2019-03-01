@@ -33,6 +33,7 @@
     "@babel/preset-flow": "^7.0.0",
     "babel-cli": "^6.26.0",
     "eslint-plugin-react": "^7.12.4",
+    "flow-bin": "^0.94.0",
     "gh-pages": "^2.0.1"
   }
 }
