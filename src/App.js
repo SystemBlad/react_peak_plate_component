@@ -13,6 +13,13 @@ class App extends Component {
                         React Js Component &quot;pico y placa&quot; predictor.
                     </p>
                 </header>
+                <p>
+                    Component instance #1.
+                </p>
+                <PeakPlatePredictor/>
+                <p>
+                    Component instance #2.
+                </p>
                 <PeakPlatePredictor/>
             </div>
         );

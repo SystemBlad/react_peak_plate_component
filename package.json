@@ -2,6 +2,7 @@
   "name": "react_peak_plate_component",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://SystemBlad.github.io/react_peak_plate_component",
   "dependencies": {
     "moment": "^2.24.0",
     "react": "^16.8.3",
@@ -13,9 +14,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "buildBabel": "babel src/ -d lib/",
     "run:JavascriptFlowChecker": "flow",
-    "run:JavascriptEslintChecker": "eslint ."
+    "run:JavascriptEslintChecker": "eslint .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -29,6 +31,7 @@
   "devDependencies": {
     "@babel/preset-flow": "^7.0.0",
     "babel-cli": "^6.26.0",
-    "eslint-plugin-react": "^7.12.4"
+    "eslint-plugin-react": "^7.12.4",
+    "gh-pages": "^2.0.1"
   }
 }
