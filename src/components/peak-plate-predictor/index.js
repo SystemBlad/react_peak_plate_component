@@ -2,31 +2,26 @@
 import React from 'react';
 import {PEAK_PLATE_RESPONSE} from "./enums";
 import {checkIsPeakAndPlate} from "./helpers";
-import Input from '@material-ui/core/Input';
-import Button from '@material-ui/core/Button';
-import withStyles from '@material-ui/core/styles/withStyles';
-import Paper from '@material-ui/core/Paper';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
+import Input from "@material-ui/core/Input";
+import Button from "@material-ui/core/Button";
+import withStyles from "@material-ui/core/styles/withStyles";
+import Paper from "@material-ui/core/Paper";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
 
-export
-interface
-Props
-{
+export interface Props {
+    classes?: any;
 }
 
-export
-interface
-State
-{
+export interface State {
     plateNumber: string,
-        inputDate
-:
-    string,
-        inputTime
-:
-    string,
+    inputDate
+        :
+        string,
+    inputTime
+        :
+        string,
 }
 
 class PeakPlatePredictor extends React.Component<Props, State> {

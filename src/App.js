@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import logo from './logo.svg';
-import './App.css';
-import PeakPlatePredictor from './components/peak-plate-predictor/index';
+import React, {Component} from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import PeakPlatePredictor from "./components/peak-plate-predictor/index";
 
 class App extends Component {
     render() {
